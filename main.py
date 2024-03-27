@@ -313,7 +313,8 @@ while True:
     print("3. Add a Grade")
     print("4. Edit a Grade")
     print("5. Add a Course")
-    print("6. Edit a Course\n")
+    print("6. Edit a Course")
+    print("7. Quit\n")
     try:
         mode = int(input("Select an option: "))
     except:
@@ -333,6 +334,9 @@ while True:
         add_course(code)
     elif mode == 6:
         edit_course()
+    elif mode == 7:
+        clear()
+        quit()
     else:
         print("Invalid option.")
         sleep(3)
