@@ -1,4 +1,5 @@
 import json
+import math
 import os.path
 from subprocess import call
 from time import sleep
@@ -88,7 +89,6 @@ def load_data():
 
 
 def calc_type_grade(type: Type):
-
     if len(type.grades) == 0:
         return 0
     points = 0
@@ -125,7 +125,7 @@ def calc_grade(course: Course):
     except:
         total = 0
 
-    return int(round(total * 100))
+    return int(math.floor(total * 100))
 
 
 def calc_letter_grade(i: int):
@@ -176,7 +176,7 @@ def view_grades_full():
             for k in j.grades:
                 assgrade = (k.points / k.max_points) * 100
                 print("%-20s %4g/%-3d (%3d%%, %2s)" % (
-                k.name, k.points, k.max_points, assgrade, calc_letter_grade(assgrade)))
+                    k.name, k.points, k.max_points, assgrade, calc_letter_grade(assgrade)))
         print("")
 
     input("\nPress Enter to continue...")
