@@ -7,7 +7,9 @@ Simple grade calculator written in Python.
 - Save grades to file to view and edit later
 ## Usage
 Run `main.py` with Python.
-```python main.py```
+```sh
+python main.py
+```
 The first time you run the program, it will create the `grades_data.json` file that your grades will be saved to. Every edit you make to your grades will automatically be saved to the file.
 Start by selecting option 5 to create a course, and enter the information for the course. You can then select option 6 to add a new type to your course. If there's only one type or everything is weighted equally, you can simply create a type with a weight of 1.
 Add grades to your course by selecting 3, then your course, then your course type.
