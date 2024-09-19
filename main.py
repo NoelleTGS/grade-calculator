@@ -172,11 +172,12 @@ def view_grades_full():
         grade = calc_grade(i)
         print("%s: %d%% (%s)" % (i.code, grade, calc_letter_grade(grade)))
         for j in i.types:
-            print(f"%s, average %d%%" % (j.name.upper(), calc_type_grade(j)))
-            for k in j.grades:
-                assgrade = (k.points / k.max_points) * 100
-                print("%-20s %4g/%-3d (%3d%%, %2s)" % (
-                    k.name, k.points, k.max_points, assgrade, calc_letter_grade(assgrade)))
+            if len(j.grades) != 0:
+                print(f"%s, average %d%%" % (j.name.upper(), calc_type_grade(j)))
+                for k in j.grades:
+                    assgrade = (k.points / k.max_points) * 100
+                    print("%-20s %4g/%-3d (%3d%%, %2s)" % (
+                        k.name, k.points, k.max_points, assgrade, calc_letter_grade(assgrade)))
         print("")
 
     input("\nPress Enter to continue...")
