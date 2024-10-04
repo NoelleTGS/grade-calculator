@@ -125,6 +125,7 @@ def calc_grade(course: Course):
     except:
         total = 0
 
+    if total == 0: total = 1
     return int(math.floor(total * 100))
 
 
