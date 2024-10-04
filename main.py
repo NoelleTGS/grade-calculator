@@ -120,6 +120,8 @@ def calc_grade(course: Course):
         total += i[0] * i[1]
         weight += i[1]
 
+    total = round(total, 2)
+
     try:
         total = total / weight
     except:
