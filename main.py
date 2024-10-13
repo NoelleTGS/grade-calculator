@@ -321,7 +321,7 @@ while True:
     print("7. Quit\n")
     try:
         mode = int(input("Select an option: "))
-    except:
+    except ValueError:
         print("Invalid input. Please try again")
         sleep(3)
         continue
