@@ -302,47 +302,48 @@ def edit_course():
         sleep(3)
 
 
-if os.path.isfile('grades_data.json'):
-    courses = load_data()
-else:
-    courses = []
-
-while True:
-    clear()
-    for i in courses:
-        for j in i.types:
-            j.grades.sort(key=lambda x: x.name)
-    print("1. View Grades")
-    print("2. View Grades (Advanced)")
-    print("3. Add a Grade")
-    print("4. Edit a Grade")
-    print("5. Add a Course")
-    print("6. Edit a Course")
-    print("7. Quit\n")
-    try:
-        mode = int(input("Select an option: "))
-    except ValueError:
-        print("Invalid input. Please try again")
-        sleep(3)
-        continue
-    if mode == 1:
-        view_grades()
-    elif mode == 2:
-        view_grades_full()
-    elif mode == 3:
-        add_grade()
-    elif mode == 4:
-        edit_grade()
-    elif mode == 5:
-        code = input("Enter course code: ")
-        add_course(code)
-    elif mode == 6:
-        edit_course()
-    elif mode == 7:
-        clear()
-        quit()
+if __name__ == "__main__":
+    if os.path.isfile('grades_data.json'):
+        courses = load_data()
     else:
-        print("Invalid option.")
-        sleep(3)
+        courses = []
 
-    save_data(courses)
+    while True:
+        clear()
+        for i in courses:
+            for j in i.types:
+                j.grades.sort(key=lambda x: x.name)
+        print("1. View Grades")
+        print("2. View Grades (Advanced)")
+        print("3. Add a Grade")
+        print("4. Edit a Grade")
+        print("5. Add a Course")
+        print("6. Edit a Course")
+        print("7. Quit\n")
+        try:
+            mode = int(input("Select an option: "))
+        except ValueError:
+            print("Invalid input. Please try again")
+            sleep(3)
+            continue
+        if mode == 1:
+            view_grades()
+        elif mode == 2:
+            view_grades_full()
+        elif mode == 3:
+            add_grade()
+        elif mode == 4:
+            edit_grade()
+        elif mode == 5:
+            code = input("Enter course code: ")
+            add_course(code)
+        elif mode == 6:
+            edit_course()
+        elif mode == 7:
+            clear()
+            quit()
+        else:
+            print("Invalid option.")
+            sleep(3)
+
+        save_data(courses)
