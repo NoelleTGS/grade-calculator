@@ -257,7 +257,7 @@ if __name__ == "__main__":
         print("2. View Grades (Advanced)")
         print("3. Add a Grade")
         print("4. Edit a Grade")
-        print("5. Add a Course")
+        print(f"5. Add a Course{"     (Use me to add your first course!)" if not len(courses)>0 else ""}")
         print("6. Edit a Course")
         print("7. Quit\n")
         try:
