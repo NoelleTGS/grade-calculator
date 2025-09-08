@@ -97,6 +97,12 @@ def calc_letter_grade(i: int):
     else:
         return 'F'
 
+def calc_gpa(i: int):
+    gpa = (0.0857143 * i) - 3.28571
+    if gpa < 1: gpa = 0
+    if gpa > 4: gpa = 4
+    return round(gpa, 2)
+
 
 def view_grades():
     clear()
@@ -110,10 +116,12 @@ def view_grades():
 
 def view_grades_full():
     clear()
+    gpas = []
     print("Current Grades\n")
     for i in courses:
         grade = calc_grade(i)
         print("%s: %d%% (%s)" % (i.code, grade, calc_letter_grade(grade)))
+        gpas.append(calc_gpa(grade))
         for j in i.types:
             if len(j.grades) != 0:
                 print(f"%s, average %d%%" % (j.name.upper(), calc_type_grade(j)))
@@ -122,6 +130,7 @@ def view_grades_full():
                     print("%-20s %4g/%-3d (%3d%%, %2s)" % (
                         k.name, k.points, k.max_points, assgrade, calc_letter_grade(assgrade)))
         print("")
+    print("\nOverall GPA: %.2f" % (sum(gpas)/len(courses)))
 
     input("\nPress Enter to continue...")
 
