@@ -127,7 +127,7 @@ def view_grades_full():
                 print(f"%s, average %d%%" % (j.name.upper(), calc_type_grade(j)))
                 for k in j.grades:
                     assgrade = (k.points / k.max_points) * 100
-                    print("%-20s %4g/%-3d (%3d%%, %2s)" % (
+                    print("%-40s %4g/%-3d (%3d%%, %2s)" % (
                         k.name, k.points, k.max_points, assgrade, calc_letter_grade(assgrade)))
         print("")
     print("\nOverall GPA: %.2f" % (sum(gpas)/len(courses)))
